@@ -21,7 +21,7 @@ def log_mood():  # Input and save a mood with a timestamp.
         choice = int(input("Hello please select a mood that you are feeling today: "))
         if 1 <= choice <= len(mood_options):
             selected_mood = mood_options[choice - 1]
-            timestamp = datetime.now().strftime("%Y-%m-%d %H:%M")
+            timestamp = datetime.now().strftime("%Y-%m-%d %I:%M %p")
             return {"timestamp": timestamp, "mood": selected_mood}
         else:
             print("Invalid Choice!")
@@ -97,7 +97,7 @@ def main():  # menu logic to drive app.
     mood_entries = load_moods()
 
     while True:
-        print("\n1. Log a Mood\n2. View Mood History\n3. Analyze Moods\n4. Exit")
+        print("\n1. Log a Mood\n2. View Mood History\n3. Analyze Moods\n4. Export Mood log to text file\n5. Exit")
         try:
             choice = int(input("Select a menu number to begin: "))
         except ValueError:
