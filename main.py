@@ -4,7 +4,8 @@ import os
 
 LOG_MOOD = 1
 VIEW_MOOD_HISTORY = 2
-EXIT = 3
+ANALYZE_MOODS = 3
+EXIT = 4
 
 
 def log_mood():  # Input and save a mood with a timestamp.
@@ -56,11 +57,31 @@ def view_moods_history():  # Display past moods cleanly
             print(f"[{mood_entry['timestamp']}] - {mood_entry['mood']}")
 
 
+def analyze_moods():
+    moods = load_moods()
+    if not moods:
+        print("No mood data to analyze")
+        return
+
+    mood_counts = {}
+
+    for entry in moods:
+        mood = entry["mood"]
+        if mood in mood_counts:
+            mood_counts[mood] += 1
+        else:
+            mood_counts[mood] = 1
+
+    print("\nMood Frequency:")
+    for mood, count in mood_counts.items():
+        print(f"{mood}: {count}")
+
+
 def main():  # menu logic to drive app.
     mood_entries = load_moods()
 
     while True:
-        print("\n1. Log a Mood\n2. View Mood History\n3. Exit")
+        print("\n1. Log a Mood\n2. View Mood History\n3. Analyze Moods\n4. Exit")
         try:
             choice = int(input("Select a menu number to begin: "))
         except ValueError:
@@ -74,6 +95,8 @@ def main():  # menu logic to drive app.
                 save_moods(mood_entries)
         elif choice == VIEW_MOOD_HISTORY:
             view_moods_history()
+        elif choice == ANALYZE_MOODS:
+            analyze_moods()
         elif choice == EXIT:
             print("Thank you for using the Mood Tracker!")
             break
