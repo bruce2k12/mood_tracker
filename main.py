@@ -5,7 +5,8 @@ import os
 LOG_MOOD = 1
 VIEW_MOOD_HISTORY = 2
 ANALYZE_MOODS = 3
-EXIT = 4
+EXPORT_MOODS_TO_TXT = 4
+EXIT = 5
 
 
 def log_mood():  # Input and save a mood with a timestamp.
@@ -57,6 +58,21 @@ def view_moods_history():  # Display past moods cleanly
             print(f"[{mood_entry['timestamp']}] - {mood_entry['mood']}")
 
 
+def export_moods_to_text():
+    moods = load_moods()
+    if not moods:
+        print("No moods to export!")
+        return
+
+    with open("mood_log.txt", "w") as file:
+        file.write("Mood Log\n")
+        file.write("=" * 20 + "\n")
+        for mood in moods:
+            file.write(f"[{mood['timestamp']}] - {mood['mood']}\n")
+
+    print("Mood log exported to mood_log.txt")
+
+
 def analyze_moods():
     moods = load_moods()
     if not moods:
@@ -97,11 +113,13 @@ def main():  # menu logic to drive app.
             view_moods_history()
         elif choice == ANALYZE_MOODS:
             analyze_moods()
+        elif choice == EXPORT_MOODS_TO_TXT:
+            export_moods_to_text()
         elif choice == EXIT:
             print("Thank you for using the Mood Tracker!")
             break
         else:
-            print("Invalid choice! Please select 1 - 3")
+            print("Invalid choice! Please select 1 - 5")
 
 
 main()
