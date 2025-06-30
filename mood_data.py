@@ -1,0 +1,23 @@
+mood_definitions = {
+    "Anxious": "Feeling worried or uneasy about something uncertain.",
+    "Calm": "Peaceful and relaxed, free from stress or agitation.",
+    "Bitter": "Feeling resentful, angry, or hurt from past experiences.",
+    "Gloomy": "Downhearted or pessimistic, often associated with sadness.",
+    "Cheerful": "Feeling visibly happy, bright, and optimistic.",
+    "Dubitative": "Hesitant or doubtful; unsure of what to believe or do.",
+    "Lonely": "Feeling isolated, disconnected, or lacking companionship.",
+    "Stressed": "Under pressure, mentally or emotionally overwhelmed.",
+    "Anger": "A strong feeling of annoyance or rage toward something.",
+    "Fear": "An emotion caused by the threat of danger or harm.",
+    "Content": "A state of quiet happiness and satisfaction.",
+    "Love": "Deep affection or attachment to someone or something.",
+    "Depressed mood": "Prolonged sadness, loss of interest, or emotional heaviness.",
+    "Empathetic": "Understanding and sharing the feelings of others.",
+    "Mad": "Feeling intensely angry or emotionally unstable.",
+    "Sadness": "An emotional pain often associated with loss or disappointment.",
+    "Happiness": "Feeling joyful, fulfilled, and mentally positive.",
+    "Enjoyment": "Experiencing pleasure or satisfaction in the moment.",
+    "Disgust": "A strong feeling of dislike or revulsion.",
+    "Imperative": "A pressing urge or feeling of urgency to act.",
+    "Mysterious": "A sense of curiosity, intrigue, or the unknown."
+}

@@ -1,6 +1,8 @@
 import json
 from datetime import datetime
 import os
+from mood_data import mood_definitions
+
 
 LOG_MOOD = 1
 VIEW_MOOD_HISTORY = 2
@@ -10,9 +12,7 @@ EXIT = 5
 
 
 def log_mood():  # Input and save a mood with a timestamp.
-    mood_options = ["Anxious", "Calm", "Bitter", "Gloomy", "Cheerful", "Dubitative", "Lonely", "Stressed", "Anger",
-                    "Fear", "Content", "Love", "Depressed mood", "Empathetic", "Mad", "Sadness", "Happiness",
-                    "Enjoyment", "Disgust", "Imperative", "Mysterious"]
+    mood_options = list(mood_definitions.keys())
     print("How are you feeling Today ?")
     for i, mood in enumerate(mood_options, start=1):
         print(f"{i}. {mood}")
