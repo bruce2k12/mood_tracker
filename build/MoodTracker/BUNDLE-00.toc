@@ -1,0 +1,3 @@
+([('MoodTracker',
+   '/Users/rb/Desktop/mood_tracker/dist/MoodTracker',
+   'EXECUTABLE')],)
