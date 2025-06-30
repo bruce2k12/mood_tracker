@@ -21,8 +21,9 @@ def log_mood():  # Input and save a mood with a timestamp.
         choice = int(input("Hello please select a mood that you are feeling today: "))
         if 1 <= choice <= len(mood_options):
             selected_mood = mood_options[choice - 1]
+            note = input("Would you like to add a note about you day? (Optional): ")
             timestamp = datetime.now().strftime("%Y-%m-%d %I:%M %p")
-            return {"timestamp": timestamp, "mood": selected_mood}
+            return {"timestamp": timestamp, "mood": selected_mood, "note": note}
         else:
             print("Invalid Choice!")
             return None
@@ -56,6 +57,8 @@ def view_moods_history():  # Display past moods cleanly
     else:
         for mood_entry in moods:
             print(f"[{mood_entry['timestamp']}] - {mood_entry['mood']}")
+            if mood_entry.get("note"):
+                print(f" Note: {mood_entry['note']}")
 
 
 def export_moods_to_text():
@@ -69,6 +72,8 @@ def export_moods_to_text():
         file.write("=" * 20 + "\n")
         for mood in moods:
             file.write(f"[{mood['timestamp']}] - {mood['mood']}\n")
+            if mood.get("note"):
+                file.write(f" Note: {mood['note']}\n")
 
     print("Mood log exported to mood_log.txt")
 
